@@ -201,18 +201,18 @@ So that your `build.gradle` in the root looks like this:
           vcsUrl = gitUrl
           licenses = ["Apache-2.0"]
           publish = true
-  //        version {
-  //            gpg {
-  //                sign = true //Determines whether to GPG sign the files. The default is false
-  //                passphrase = 'bintray.gpg.password' //Optional. The passphrase for GPG signing'
-  //            }
-  //            mavenCentralSync {
-  //                sync = true //Optional (true by default). Determines whether to sync the version to Maven Central.
-  //                user = 'bintray.oss.user' //OSS user token
-  //                password = 'bintray.oss.password' //OSS user password
-  //                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
-  //            }
-  //        }
+          version {
+            gpg {
+                sign = true //Determines whether to GPG sign the files. The default is false
+                passphrase = properties.getProperty("bintray.gpg.password") //Optional. The passphrase for GPG signing'
+            }
+//            mavenCentralSync {
+//                sync = true //Optional (true by default). Determines whether to sync the version to Maven Central.
+//                user = properties.getProperty("bintray.oss.user") //OSS user token
+//                password = properties.getProperty("bintray.oss.password") //OSS user password
+//                close = '1' //Optional property. By default the staging repository is closed and artifacts are released to Maven Central. You can optionally turn this behaviour off (by puting 0 as value) and release the version manually.
+//            }
+        }        
       }
   }
   ```
