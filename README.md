@@ -217,12 +217,12 @@ So that your `build.gradle` in the root looks like this:
 
 12. Add to the `local.properties` in the root of the project the following lines (remember that this file should never be uploaded on your public repository):
   ``` gradle
-  bintray.user=<your bintray username>
-  bintray.apikey=<your bintray api key>
-  
-  bintray.gpg.password=<your gpg signing password>
-  bintray.oss.user=<your sonatype username>
-  bintray.oss.password=<your sonatype password>
+    bintray.user=<your bintray username>
+    bintray.apikey=<your bintray api key>
+    
+    bintray.gpg.password=<your gpg signing password>
+    bintray.oss.user=<your sonatype username>
+    bintray.oss.password=<your sonatype password>
   ```
 
 13. Added to my PATH the default gradle 2.2.1 actually used by "Android Studio", for example:
