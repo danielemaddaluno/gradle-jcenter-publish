@@ -33,7 +33,7 @@ if you execute the following code (the `-a` or `--armor` option in `gpg`is used 
 
 8. In the same [web page](https://bintray.com/profile/edit) you can find your `Bintray API Key` (simply copy it for a later use)
 
-9. In the same [web page](https://bintray.com/profile/edit) you can configure your `Sonatype OSS User` (created at previous step 3)
+9. In the same [web page](https://bintray.com/profile/edit) you can configure your `Sonatype OSS User` (created at previous step 3) from the `Account` link
 
 10. Add these two lines to the `build.gradle` in the root of your project
   ``` gradle
