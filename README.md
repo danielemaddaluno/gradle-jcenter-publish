@@ -11,7 +11,7 @@ I'm going to list how to upload an Android libray to jCenter and then to the Mav
 3. Register to [Sonatype](https://issues.sonatype.org/secure/Dashboard.jspa), i registered with username `danielemaddaluno`
 
 4. In the [Sonatype OSS Repository](https://issues.sonatype.org/secure/Dashboard.jspa) I registered a project opening a new Issue:<br>
-`Create → Create Issue → Community Support - Open Source Project Repository Hosting → New Project) with groupid com.github.danielemaddaluno`<br>
+`Create → Create Issue → Community Support - Open Source Project Repository Hosting → New Project → with groupid com.github.danielemaddaluno`<br>
 Remember that "only one JIRA issue per top-level groupId is necessary. You have all the necessary permissions to deploy any new artifacts to this groupId or any sub-groups".
 
 5. Register to Bintray with a `username`, the one used by me is: `danielemaddaluno`
@@ -21,7 +21,9 @@ from Bintray [profile url](https://bintray.com/profile/edit) → GPG Signing →
 You can find respectively these two keys in files `public_key_sender.asc` and `private_key_sender.asc`
 if you execute the following code (the `-a` or `--armor` option in `gpg`is used to generate ASCII-armored key pair):
   ``` bash
-  gpg --gen-key
+  gpg --gen-key    # generates the key pair
+  gpg --list-keys  # get your PubKeyId (this value is used in the line below)
+  gpg --keyserver hkp://pool.sks-keyservers.net --send-keys PubKeyId  # publish your Key
   gpg -a --export daniele.maddaluno@gmail.com > public_key_sender.asc
   gpg -a --export-secret-key daniele.maddaluno@gmail.com > private_key_sender.asc
   ```
@@ -217,30 +219,31 @@ So that your `build.gradle` in the root looks like this:
 
 12. Add to the `local.properties` in the root of the project the following lines (remember that this file should never be uploaded on your public repository):
   ``` gradle
-    bintray.user=<your bintray username>
-    bintray.apikey=<your bintray api key>
-    
-    bintray.gpg.password=<your gpg signing password>
-    bintray.oss.user=<your sonatype username>
-    bintray.oss.password=<your sonatype password>
+  bintray.user=<your bintray username>
+  bintray.apikey=<your bintray api key>
+  
+  bintray.gpg.password=<your gpg signing password>
+  bintray.oss.user=<your sonatype username>
+  bintray.oss.password=<your sonatype password>
   ```
 
-13. Added to my PATH the default gradle 2.2.1 actually used by "Android Studio", for example:
+13. Add to the PATH the default gradle 2.2.1 actually used by "Android Studio", for example:
   ``` bash
   sudo gedit .bashrc
   ```
-  Add to the bottom of file `.bashrc` the following line:<br> `PATH=$PATH:/etc/android-studio/gradle/gradle-2.2.1/bin`
+  Add to the bottom of file `.bashrc` the following line (verify your gradle path):<br> `PATH=$PATH:/etc/android-studio/gradle/gradle-2.2.1/bin`
   
 14. Open "Android Studio" terminal and execute:
   ``` bash
   gradle bintrayUpload
   ```
 
-15. From [Bintray](https://bintray.com/) → My Recent Packages → androidupdatechecker (this is here only after the execution of the previous point 14 ) → Add to Jcenter → Check the box → Group Id = "com.github.danielemaddaluno.androidupdatechecker".
+15. From [Bintray](https://bintray.com/) → My Recent Packages → androidupdatechecker (this is here only after the execution of the previous point 14 ) → Add to Jcenter → Check the box → Group Id = "com.github.danielemaddaluno.androidupdatechecker".<br>
+This will request a review and public listing of your library on jCenter repository.
 
 16. Finally Sync all with Maven Central following: Bintray → My Recent Packages → androidupdatechecker → Maven Central → Sync.
 
-17. Now your library should be automatically imported both from Maven Central and from Bintray, you can import with something like this:
+17. Now your library should be automatically imported both from Maven Central and from Bintray, you can import with something like this:<br>
   **Automatically with Gradle**
   ``` gradle
   dependencies {
