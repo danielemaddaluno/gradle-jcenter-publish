@@ -248,11 +248,12 @@ This will request a review and public listing of your library on jCenter reposit
   **Automatically with Gradle**
   ``` gradle
   dependencies {
-      repositories {
-          maven {
-              url 'http://dl.bintray.com/danielemaddaluno/maven/'
-          }
-      }
+    repositories {
+        mavenCentral()
+//        maven {
+//            url 'http://dl.bintray.com/danielemaddaluno/maven/'
+//        }
+    }
       compile 'com.github.danielemaddaluno.androidupdatechecker:library:1.0.0'
   }
   ```
