@@ -1,7 +1,7 @@
 **Publish an aar file to jCenter with Gradle:**
 ----------------------------------------------------------------------
 
-I'm going to list how to upload an Android libray to jCenter and then to the Maven Central:
+I'm going to list how to publish an Android libray to jCenter and then syncronize it with Maven Central:
 
 
 1. I use "Android Studio" and I have this simple android lib that I would like to be available on maven: [Android-Update-Checker](https://github.com/danielemaddaluno/Android-Update-Checker)
