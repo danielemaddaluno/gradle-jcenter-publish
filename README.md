@@ -138,6 +138,7 @@ So that your `build.gradle` in the root looks like this:
   
                   // Add your description here
                   name 'Android Update Checker'
+                  description = 'The project aims to provide a reusable instrument to check asynchronously if exists any newer released update of your Android app on the Store.'
                   url siteUrl
   
                   // Set your license
