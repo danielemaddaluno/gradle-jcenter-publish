@@ -254,7 +254,13 @@ This will request a review and public listing of your library on jCenter reposit
 //            url 'http://dl.bintray.com/danielemaddaluno/maven/'
 //        }
     }
-      compile 'com.github.danielemaddaluno.androidupdatechecker:library:1.0.0'
+      compile 'com.github.danielemaddaluno.androidupdatechecker:library:+'
+  }
+  ```
+  If you use the default of Android Studio, jcenter() you could simply import like this (for me it doesn't work without the exactly version, i.e. with the plus gives me an error)
+    ``` gradle
+  dependencies {
+      compile 'com.github.danielemaddaluno.androidupdatechecker:library:1.0.3'
   }
   ```
   **Automatically with Maven**
